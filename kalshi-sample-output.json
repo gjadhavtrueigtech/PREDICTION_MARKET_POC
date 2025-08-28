@@ -1,0 +1,669 @@
+{
+  "url": "https://kalshi.com",
+  "scrapedAt": "2025-08-26T12:36:04.819Z",
+  "totalMarketsFound": 46,
+  "markets": [
+    {
+      "question": "News · President Trump removed Federal Reserve Governor Lisa Cook, citing mortgage fraud allegations tied to conflicting primary residence claims, CNBC reports. The unprecedented move sets up a likely legal battle over whether a president can unilaterally fire a Fed governor, a power historically limited to cases of malfeasance or dereliction of duty.",
+      "text": "Lisa Cook Out as Fed Governor this year?",
+      "href": "https://kalshi.com/markets/kxleavelisacook#kxleavelisacook-26jan",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXLEAVELISACOOK.webp?size=sm",
+      "options": []
+    },
+    {
+      "question": "News · Day two of the US Open features Carlos Alcaraz's opening match against Reilly Opelka, while top seed Jannik Sinner won't take the court until Tuesday, CBS Sports reports. On the women's side, Coco Gauff, Madison Keys, and Amanda Anisimova headline Monday's slate as American contenders look to advance.",
+      "text": "US Open Men's Tennis Winner?",
+      "href": "https://kalshi.com/markets/kxusomensingles#kxusomensingles-25",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/Tennis-US_Open-Champion.webp",
+      "options": [
+        {
+          "label": "Jannik Sinner",
+          "percentage": "46%"
+        },
+        {
+          "label": "Carlos Alcaraz",
+          "percentage": "36%"
+        }
+      ]
+    },
+    {
+      "question": "News · SpaceX scrubbed Starship's 10th test flight just moments before liftoff, citing a ground systems issue, MyCentralOregon.com reports. The company now plans to attempt the launch Monday evening, with a 7:30 p.m. ET window.",
+      "text": "SpaceX Starship 10th launch?",
+      "href": "https://kalshi.com/markets/kxspacexstarship#kxspacexstarship",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXSPACEXSTARSHIP.webp?size=sm",
+      "options": [],
+      "percentage": "85%"
+    },
+    {
+      "question": "News · Republicans are moving beyond Texas to pursue mid-decade redistricting in states like Florida, Ohio, Indiana, and Missouri after Trump pressured governors to follow suit, The Hill reports. Party strategists say even small seat gains could prove decisive in the narrowly divided House.",
+      "text": "What states will redistrict before the 2026 Congressional elections?",
+      "href": "https://kalshi.com/markets/kxredistricting#kxredistricting-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXREDISTRICTING.webp?size=sm",
+      "options": [
+        {
+          "label": "Maryland",
+          "percentage": "24%"
+        },
+        {
+          "label": "Louisiana",
+          "percentage": "23%"
+        }
+      ]
+    },
+    {
+      "question": "News · Democrats slammed President Trump's threat to deploy federal troops to Chicago without state approval, with Rep. Hakeem Jeffries calling it an attempt to 'manufacture a crisis,' Axios reports. Illinois Gov. JB Pritzker and Chicago Mayor Brandon Johnson have also rejected the idea, warning it would be unlawful and destabilizing.",
+      "text": "What cities will Trump send the National Guard to this year?",
+      "href": "https://kalshi.com/markets/kxnguardcity#kxnguardcity-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXNGUARDCITY.webp?size=sm",
+      "options": [
+        {
+          "label": "Chicago",
+          "percentage": "51%"
+        },
+        {
+          "label": "New York City",
+          "percentage": "29%"
+        }
+      ]
+    },
+    {
+      "question": "News · Cracker Barrel lost nearly $100 million in market value after unveiling a new logo that ditched its iconic old man and barrel, The Hill reports. The redesign drew sharp criticism from customers, rival chains, and even Donald Trump Jr., though the company has not indicated any plans to reverse course.",
+      "text": "Julie Felss Masino out as Cracker Barrel CEO this year?",
+      "href": "https://kalshi.com/markets/kxleavecrackerbarrel#kxleavecrackerbarrel-26jan",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXLEAVECRACKERBARREL.webp?size=sm",
+      "options": []
+    },
+    {
+      "question": "News · California Gov. Gavin Newsom leads former Vice President Kamala Harris 25-19 among Democratic-leaning voters in their home state for the 2028 primary, Politico reports. The survey highlights Newsom's higher visibility in opposing Trump's agenda, while Harris has largely stayed out of the spotlight since her 2024 loss.",
+      "text": "Democratic nominee in 2028?",
+      "href": "https://kalshi.com/markets/kxpresnomd#kxpresnomd-28",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/market-images/KXPRESNOMD-28-GN.png?v=tnlr3umisg",
+      "options": [
+        {
+          "label": "Gavin Newsom",
+          "percentage": "29%"
+        },
+        {
+          "label": "Alexandria Ocasio-Cortez",
+          "percentage": "13%"
+        }
+      ]
+    },
+    {
+      "question": "Next US Presidential Election Winner?",
+      "text": "Next US Presidential Election Winner?",
+      "href": "https://kalshi.com/markets/kxpresperson/pres-person#kxpresperson-28",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXPRESPERSON.webp?size=sm",
+      "options": [
+        {
+          "label": "J.D. Vance",
+          "percentage": "30%"
+        },
+        {
+          "label": "Gavin Newsom",
+          "percentage": "20%"
+        }
+      ]
+    },
+    {
+      "question": "Pro Football Champion?",
+      "text": "Pro Football Champion?",
+      "href": "https://kalshi.com/markets/kxsb/super-bowl#kxsb-26",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/Football-NFL-Champion.webp",
+      "options": [
+        {
+          "label": "Philadelphia",
+          "percentage": "13%"
+        },
+        {
+          "label": "Buffalo",
+          "percentage": "12%"
+        }
+      ]
+    },
+    {
+      "question": "New York City Mayor Election",
+      "text": "New York City Mayor Election",
+      "href": "https://kalshi.com/markets/kxmayornycparty/mayor-of-nyc-party-winner#kxmayornycparty-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXMAYORNYCPARTY.webp?size=sm",
+      "options": [
+        {
+          "label": "Zohran Mamdani",
+          "percentage": "84%"
+        },
+        {
+          "label": "Andrew Cuomo",
+          "percentage": "10%"
+        }
+      ]
+    },
+    {
+      "question": "US Open Men's Tennis Winner?",
+      "text": "US Open Men's Tennis Winner?",
+      "href": "https://kalshi.com/markets/kxusomensingles/us-open-mens-singles#kxusomensingles-25",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/Tennis-US_Open-Champion.webp",
+      "options": [
+        {
+          "label": "Jannik Sinner",
+          "percentage": "46%"
+        },
+        {
+          "label": "Carlos Alcaraz",
+          "percentage": "36%"
+        }
+      ]
+    },
+    {
+      "question": "US Open Women's Tennis Winner?",
+      "text": "US Open Women's Tennis Winner?",
+      "href": "https://kalshi.com/markets/kxusowomensingles/us-open-womens-singles#kxusowomensingles-25",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/W-Tennis-US_Open-Futures-Champion.webp",
+      "options": [
+        {
+          "label": "Iga Swiatek",
+          "percentage": "29%"
+        },
+        {
+          "label": "Aryna Sabalenka",
+          "percentage": "24%"
+        }
+      ]
+    },
+    {
+      "question": "SpaceX Starship 10th launch?",
+      "text": "SpaceX Starship 10th launch?",
+      "href": "https://kalshi.com/markets/kxspacexstarship/spacex-starship-launch#kxspacexstarship",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXSPACEXSTARSHIP.webp?size=sm",
+      "options": [],
+      "percentage": "85%"
+    },
+    {
+      "question": "When will Bitcoin hit $125k?",
+      "text": "When will Bitcoin hit $125k?",
+      "href": "https://kalshi.com/markets/kxbtcmax125/when-will-bitcoin-hit-125k#kxbtcmax125-1",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXBTCMAX125.webp?size=sm",
+      "options": [
+        {
+          "label": "Before Nov 2025",
+          "percentage": "50%"
+        },
+        {
+          "label": "Before Dec 2025",
+          "percentage": "62%"
+        }
+      ]
+    },
+    {
+      "question": "What will Trump say this month?",
+      "text": "What will Trump say this month?",
+      "href": "https://kalshi.com/markets/kxtrumpsay/what-will-trump-say#kxtrumpsay-25sep",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXTRUMPSAY.webp?size=sm",
+      "options": [
+        {
+          "label": "Zohran / Mamdani",
+          "percentage": "36%"
+        },
+        {
+          "label": "UFC",
+          "percentage": "31%"
+        }
+      ]
+    },
+    {
+      "question": "Fed decision in September?",
+      "text": "Fed decision in September?",
+      "href": "https://kalshi.com/markets/kxfeddecision/fed-meeting#kxfeddecision-25sep",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXFEDDECISION.webp?size=sm",
+      "options": [
+        {
+          "label": "Cut 25bps",
+          "percentage": "74%"
+        },
+        {
+          "label": "Fed maintains rate",
+          "percentage": "20%"
+        }
+      ]
+    },
+    {
+      "question": "What will Powell say during his September press conference?",
+      "text": "What will Powell say during his September press conference?",
+      "href": "https://kalshi.com/markets/kxfedmention/fed-mention#kxfedmention-25sep",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXFEDMENTION.webp?size=sm",
+      "options": [
+        {
+          "label": "Uncertainty (5+ Times)",
+          "percentage": "47%"
+        },
+        {
+          "label": "Goods inflation",
+          "percentage": "59%"
+        }
+      ]
+    },
+    {
+      "question": "Democratic nominee in 2028?",
+      "text": "Democratic nominee in 2028?",
+      "href": "https://kalshi.com/markets/kxpresnomd/democratic-primary-winner#kxpresnomd-28",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXPRESNOMD.webp?size=sm",
+      "options": [
+        {
+          "label": "Gavin Newsom",
+          "percentage": "29%"
+        },
+        {
+          "label": "Alexandria Ocasio-Cortez",
+          "percentage": "13%"
+        }
+      ]
+    },
+    {
+      "question": "What cities will Trump send the National Guard to this year?",
+      "text": "What cities will Trump send the National Guard to this year?",
+      "href": "https://kalshi.com/markets/kxnguardcity/which-cities-will-trump-deploy-the-national-guard-in#kxnguardcity-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXNGUARDCITY.webp?size=sm",
+      "options": [
+        {
+          "label": "Chicago",
+          "percentage": "51%"
+        },
+        {
+          "label": "New York City",
+          "percentage": "31%"
+        }
+      ]
+    },
+    {
+      "question": "What states will redistrict before the 2026 Congressional elections?",
+      "text": "What states will redistrict before the 2026 Congressional elections?",
+      "href": "https://kalshi.com/markets/kxredistricting/redistricting#kxredistricting-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXREDISTRICTING.webp?size=sm",
+      "options": [
+        {
+          "label": "Maryland",
+          "percentage": "24%"
+        },
+        {
+          "label": "Louisiana",
+          "percentage": "23%"
+        }
+      ]
+    },
+    {
+      "question": "AL MVP Winner?",
+      "text": "Pro BaseballAL MVP Winner?",
+      "href": "https://kalshi.com/markets/kxmlbalmvp/pro-baseball-american-league-mvp#kxmlbalmvp-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXMLBALMVP.webp?size=sm",
+      "options": [
+        {
+          "label": "Cal Raleigh",
+          "percentage": "48%"
+        },
+        {
+          "label": "Aaron Judge",
+          "percentage": "46%"
+        }
+      ]
+    },
+    {
+      "question": "Will Taylor Swift and Travis Kelce be engaged this year?",
+      "text": "Will Taylor Swift and Travis Kelce be engaged this year?48%",
+      "href": "https://kalshi.com/markets/kxengagementswiftkelce/swift-kelce#kxengagementswiftkelce-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXENGAGEMENTSWIFTKELCE.webp?size=sm",
+      "options": [],
+      "percentage": "48%"
+    },
+    {
+      "question": "\"The Roses\" Rotten Tomatoes score?",
+      "text": "\"The Roses\" Rotten Tomatoes score?",
+      "href": "https://kalshi.com/markets/kxrtroses/roses-rotten-tomatoes-score-#kxrtroses",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXRTROSES.webp?size=sm",
+      "options": [
+        {
+          "label": "Above 65",
+          "percentage": "49%"
+        },
+        {
+          "label": "Above 67",
+          "percentage": "36%"
+        }
+      ]
+    },
+    {
+      "question": "Who will Trump nominate as Fed Chair?",
+      "text": "Who will Trump nominate as Fed Chair?",
+      "href": "https://kalshi.com/markets/kxfedchairnom/fed-chair-nominee#kxfedchairnom-29",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXFEDCHAIRNOM.webp?size=sm",
+      "options": [
+        {
+          "label": "Christopher Waller",
+          "percentage": "32%"
+        },
+        {
+          "label": "Kevin Warsh",
+          "percentage": "23%"
+        }
+      ]
+    },
+    {
+      "question": "Will any Covid vaccine lose its FDA approval this year?",
+      "text": "Will any Covid vaccine lose its FDA approval this year?53%",
+      "href": "https://kalshi.com/markets/kxvaccinew/vaccine-approval-withdrawn#kxvaccinew-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXVACCINEW.webp?size=sm",
+      "options": [],
+      "percentage": "53%"
+    },
+    {
+      "question": "CPI in August?",
+      "text": "CPI in August?",
+      "href": "https://kalshi.com/markets/kxcpi/cpi#kxcpi-25aug",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXCPI.webp?size=sm",
+      "options": [
+        {
+          "label": "Above 0.3%",
+          "percentage": "38%"
+        },
+        {
+          "label": "Above 0.2%",
+          "percentage": "80%"
+        }
+      ]
+    },
+    {
+      "question": "Hurricane Gabrielle category?",
+      "text": "Hurricane Gabrielle category?",
+      "href": "https://kalshi.com/markets/kxhurcat/hurricane-category#kxhurcat-gabrielle",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXHURCAT.webp?size=sm",
+      "options": [
+        {
+          "label": "Category 2 or above",
+          "percentage": "60%"
+        },
+        {
+          "label": "Category 3 or above",
+          "percentage": "36%"
+        }
+      ]
+    },
+    {
+      "question": "Who will win the Bolivian election?",
+      "text": "Who will win the Bolivian election?",
+      "href": "https://kalshi.com/markets/kxboliviapres/bolivia-presidential-election#kxboliviapres-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXBOLIVIAPRES.webp?size=sm",
+      "options": [
+        {
+          "label": "Rodrigo Paz Pereira",
+          "percentage": "69%"
+        },
+        {
+          "label": "Jorge Quiroga",
+          "percentage": "32%"
+        }
+      ]
+    },
+    {
+      "question": "Who will win the Nobel Peace Prize?",
+      "text": "Who will win the Nobel Peace Prize?",
+      "href": "https://kalshi.com/markets/kxnobelpeace/nobel-peace-prize#kxnobelpeace-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXNOBELPEACE.webp?size=sm",
+      "options": [
+        {
+          "label": "Yulia Navalnaya",
+          "percentage": "21%"
+        },
+        {
+          "label": "Sudan's Emergency Response Rooms",
+          "percentage": "11%"
+        }
+      ]
+    },
+    {
+      "question": "Game of the Year?",
+      "text": "Game of the Year?",
+      "href": "https://kalshi.com/markets/kxgameawards/game-awards#kxgameawards-2025",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXGAMEAWARDS.webp?size=sm",
+      "options": [
+        {
+          "label": "Clair Obscur: Expedition 33",
+          "percentage": "71%"
+        },
+        {
+          "label": "Hollow Knight: Silksong",
+          "percentage": "17%"
+        }
+      ]
+    },
+    {
+      "question": "Will xAI sue Apple?",
+      "text": "Will xAI sue Apple?66%",
+      "href": "https://kalshi.com/markets/kxxaisueapple/will-xai-sue-apple#kxxaisueapple-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXXAISUEAPPLE.webp?size=sm",
+      "options": [],
+      "percentage": "66%"
+    },
+    {
+      "question": "New Jersey Governor?",
+      "text": "New Jersey Governor?",
+      "href": "https://kalshi.com/markets/govpartynj/new-jersey-governor-race#govpartynj-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/GOVPARTYNJ.webp?size=sm",
+      "options": [
+        {
+          "label": "Democratic Party",
+          "percentage": "87%"
+        },
+        {
+          "label": "Republican Party",
+          "percentage": "13%"
+        }
+      ]
+    },
+    {
+      "question": "How many straight weeks will 'The Life of a Showgirl' be #1?",
+      "text": "How many straight weeks will 'The Life of a Showgirl' be #1?",
+      "href": "https://kalshi.com/markets/kxtopalbumrecordtloasg/how-many-straight-weeks-will-the-life-of-a-show-girl-be-1#kxtopalbumrecordtloasg-tloasg",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXTOPALBUMRECORDTLOASG.webp?size=sm",
+      "options": [
+        {
+          "label": "More than 9 weeks",
+          "percentage": "53%"
+        },
+        {
+          "label": "More than 8 weeks",
+          "percentage": "51%"
+        }
+      ]
+    },
+    {
+      "question": "\"Hollow Knight: Silksong\" Metacritic score?",
+      "text": "\"Hollow Knight: Silksong\" Metacritic score?",
+      "href": "https://kalshi.com/markets/kxmchksilksong/-metacritic-hollow-knight-silksong-score#kxmchksilksong",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXMCHKSILKSONG.webp?size=sm",
+      "options": [
+        {
+          "label": "90 or greater",
+          "percentage": "63%"
+        },
+        {
+          "label": "95 or greater",
+          "percentage": "14%"
+        }
+      ]
+    },
+    {
+      "question": "What will Nvidia say during their next earnings call?",
+      "text": "What will Nvidia say during their next earnings call?",
+      "href": "https://kalshi.com/markets/kxearningsmentionnvda/nvda-earnings-mention#kxearningsmentionnvda-25aug27",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXEARNINGSMENTIONNVDA.webp?size=sm",
+      "options": [
+        {
+          "label": "Professional",
+          "percentage": "52%"
+        },
+        {
+          "label": "Cosmos",
+          "percentage": "74%"
+        }
+      ]
+    },
+    {
+      "question": "Who will headline the Pro Football Championship halftime show?",
+      "text": "Who will headline the Pro Football Championship halftime show?",
+      "href": "https://kalshi.com/markets/kxsuperbowlheadline/who-will-headline-super-bowl-lx#kxsuperbowlheadline-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXSUPERBOWLHEADLINE.webp?size=sm",
+      "options": [
+        {
+          "label": "Taylor Swift",
+          "percentage": "60%"
+        },
+        {
+          "label": "Post Malone",
+          "percentage": "20%"
+        }
+      ]
+    },
+    {
+      "question": "College Football Championship Winner?",
+      "text": "College Football Championship Winner?",
+      "href": "https://kalshi.com/markets/kxncaaf/ncaaf-championship#kxncaaf-26",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/Football-NCAA-Champion.webp",
+      "options": [
+        {
+          "label": "Texas",
+          "percentage": "16%"
+        },
+        {
+          "label": "Ohio St.",
+          "percentage": "13%"
+        }
+      ]
+    },
+    {
+      "question": "How low will Bitcoin get this year?",
+      "text": "How low will Bitcoin get this year?",
+      "href": "https://kalshi.com/markets/kxbtcminy/how-low-will-bitcoin-fall-this-year#kxbtcminy-25",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXBTCMINY.webp?size=sm",
+      "options": [
+        {
+          "label": "Below $70,000",
+          "percentage": "12%"
+        },
+        {
+          "label": "Below $60,000",
+          "percentage": "6%"
+        }
+      ]
+    },
+    {
+      "question": "Will Elon Musk sue Apple?",
+      "text": "Will Elon Musk sue Apple?49%",
+      "href": "https://kalshi.com/markets/kxelonsueapple/will-elon-musk-sue-apple#kxelonsueapple-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXELONSUEAPPLE.webp?size=sm",
+      "options": [],
+      "percentage": "49%"
+    },
+    {
+      "question": "English Premier League Winner?",
+      "text": "English Premier League Winner?",
+      "href": "https://kalshi.com/markets/kxpremierleague/premier-league#kxpremierleague-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXPREMIERLEAGUE.webp?size=sm",
+      "options": [
+        {
+          "label": "Arsenal",
+          "percentage": "34%"
+        },
+        {
+          "label": "Liverpool",
+          "percentage": "34%"
+        }
+      ]
+    },
+    {
+      "question": "Fed funds rate in September?",
+      "text": "Fed funds rate in September?",
+      "href": "https://kalshi.com/markets/kxfed/fed-funds-rate#fed-25sep",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXFED.webp?size=sm",
+      "options": [
+        {
+          "label": "Above 4.25%",
+          "percentage": "20%"
+        },
+        {
+          "label": "Above 4.00%",
+          "percentage": "95%"
+        }
+      ]
+    },
+    {
+      "question": "College Football Heisman Trophy Winner?",
+      "text": "College FootballCollege Football Heisman Trophy Winner?",
+      "href": "https://kalshi.com/markets/kxheisman/heisman-trophy-winner#kxheisman-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXHEISMAN.webp?size=sm",
+      "options": [
+        {
+          "label": "Arch Manning",
+          "percentage": "14%"
+        },
+        {
+          "label": "Garrett Nussmeier",
+          "percentage": "9%"
+        }
+      ]
+    },
+    {
+      "question": "Julie Felss Masino out as Cracker Barrel CEO this year?",
+      "text": "Julie Felss Masino out as Cracker Barrel CEO this year?27%",
+      "href": "https://kalshi.com/markets/kxleavecrackerbarrel/cracker-barrel-ceo-leave-office-#kxleavecrackerbarrel-26jan",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXLEAVECRACKERBARREL.webp?size=sm",
+      "options": [],
+      "percentage": "27%"
+    },
+    {
+      "question": "How high will Ethereum get this year?",
+      "text": "How high will Ethereum get this year?",
+      "href": "https://kalshi.com/markets/kxethmaxy/how-high-will-ethereum-get-this-year#kxethmaxy-25dec31",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXETHMAXY.webp?size=sm",
+      "options": [
+        {
+          "label": "$5,750 or above",
+          "percentage": "50%"
+        },
+        {
+          "label": "$6,000 or above",
+          "percentage": "46%"
+        }
+      ]
+    },
+    {
+      "question": "College Football Big 10 Championship Winner?",
+      "text": "College Football Big 10 Championship Winner?",
+      "href": "https://kalshi.com/markets/kxncaafb10/big-ten-champion#kxncaafb10-25",
+      "imageUrl": "https://kalshi-public-docs.s3.us-east-1.amazonaws.com/override_images/sports/Football-NCAA-Quarterfinal.webp",
+      "options": [
+        {
+          "label": "Ohio St.",
+          "percentage": "30%"
+        },
+        {
+          "label": "Penn St.",
+          "percentage": "28%"
+        }
+      ]
+    },
+    {
+      "question": "What countries will Trump visit in the first year?",
+      "text": "What countries will Trump visit in the first year?",
+      "href": "https://kalshi.com/markets/kxpresvisit/foreign-trips-by-the-potus#kxpresvisit-26",
+      "imageUrl": "https://d1lvyva3zy5u58.cloudfront.net/series-images-webp/KXPRESVISIT.webp?size=sm",
+      "options": [
+        {
+          "label": "Israel",
+          "percentage": "39%"
+        },
+        {
+          "label": "China",
+          "percentage": "38%"
+        }
+      ]
+    }
+  ]
+}

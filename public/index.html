@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Markets Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-chart-line"></i>
+                <h1>Prediction Markets</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="btn-secondary" onclick="refreshData()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Data
+                </button>
+                <button class="btn-primary" onclick="triggerScrape()">
+                    <i class="fas fa-download"></i>
+                    Scrape Latest
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Live Prediction Markets</h2>
+                                    <p>Real-time prediction market data - Track predictions on politics, sports, economics, and more</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="total-markets">-</span>
+                        <span class="stat-label">Markets</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="total-options">-</span>
+                        <span class="stat-label">Options</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="last-updated">-</span>
+                        <span class="stat-label">Last Updated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search markets..." onkeyup="filterMarkets()">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All Markets</button>
+                    <button class="filter-btn" data-filter="options" onclick="setFilter('options')">Multi-Choice</button>
+                    <button class="filter-btn" data-filter="binary" onclick="setFilter('binary')">Yes/No</button>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="sort-select" onchange="sortMarkets()">
+                        <option value="default">Sort by Default</option>
+                        <option value="name">Sort by Name</option>
+                        <option value="options">Sort by Options Count</option>
+                        <option value="percentage">Sort by Percentage</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading prediction markets...</p>
+    </div>
+
+    <!-- Markets Grid -->
+    <main class="main">
+        <div class="container">
+            <div class="markets-grid" id="markets-grid">
+                <!-- Markets will be populated here -->
+            </div>
+            
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <i class="fas fa-chart-bar"></i>
+                <h3>No markets found</h3>
+                <p>Try adjusting your search or filters</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scraping Modal -->
+    <div class="modal" id="scrape-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Scraping Latest Data</h3>
+                <button class="modal-close" onclick="closeScrapeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="scrape-progress">
+                    <div class="scrape-spinner"></div>
+                    <p id="scrape-status">Starting scrape process...</p>
+                </div>
+                <div class="scrape-output">
+                    <pre id="scrape-log"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Prediction Markets Platform</h4>
+                    <p>Real-time prediction market data visualization</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Data Source</h4>
+                    <p>Powered by prediction market data</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Technology</h4>
+                    <p>Built with Node.js, Express, and Puppeteer</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Prediction Markets Platform. For educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
