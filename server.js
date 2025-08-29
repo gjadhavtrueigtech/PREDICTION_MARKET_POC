@@ -2,10 +2,10 @@ const express = require("express");
 const fs = require("fs").promises;
 const path = require("path");
 const fetch = require("node-fetch");
-const multer = require('multer');
-const  axios  = require("axios");
+const multer = require("multer");
+const axios = require("axios");
 
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 const PORT = 3001;
@@ -19,11 +19,11 @@ app.use(express.static("public"));
 // Set up file upload storage
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/uploads/')
+    cb(null, "public/uploads/");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname)
-  }
+    cb(null, Date.now() + "-" + file.originalname);
+  },
 });
 
 const upload = multer({ storage: storage });
@@ -83,16 +83,6 @@ app.post("/api/scrape", async (req, res) => {
         });
       }
     });
-
-    // Set timeout for scraping process
-    setTimeout(() => {
-      scrapeProcess.kill();
-      res.status(408).json({
-        success: false,
-        message: "Scraping timeout (45 seconds)",
-        output: output,
-      });
-    }, 45000);
   } catch (error) {
     console.error("Error starting scraping:", error);
     res.status(500).json({
@@ -116,11 +106,9 @@ app.get("/api/news", async (req, res) => {
   }
 });
 
-
 app.post("/api/ai-suggestions", async (req, res) => {
-
-    try {
-        const prompt = `Generate 5 prediction market questions based on future events and sports, politics  in JSON format like this example:
+  try {
+    const prompt = `Generate 5 prediction market questions based on future events and sports, politics  in JSON format like this example:
         [{
             "question": "",
             "text": "",
@@ -128,49 +116,52 @@ app.post("/api/ai-suggestions", async (req, res) => {
         }]
     user prompt: ${req.body?.prompt}`;
 
-        const response = await axios.post(
-            'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent',
-            {
-                contents: [{
-                    parts: [{
-                        text: prompt
-                    }]
-                }]
-            },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-goog-api-key': process.env.GEMINI_API_KEY
-                }
-            }
-        );
+    const response = await axios.post(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "X-goog-api-key": process.env.GEMINI_API_KEY,
+        },
+      }
+    );
 
-        const generatedText = response.data.candidates[0].content.parts[0].text;
-        console.log("response", generatedText)
-         let markets = JSON.parse(generatedText.replace(/```json|```/g, "").trim());
-        
-        res.json({
-            markets,
-            timestamp: new Date().toISOString(),
-            totalPredictions: markets.length,
-            source: "Gemini API"
-        });
+    const generatedText = response.data.candidates[0].content.parts[0].text;
+    console.log("response", generatedText);
+    let markets = JSON.parse(generatedText.replace(/```json|```/g, "").trim());
 
-    } catch (error) {
-        console.error("Error getting AI suggestions:", error);
-        res.status(500).json({ 
-            error: 'Failed to get AI suggestions',
-            details: error.message 
-        });
-    }
+    res.json({
+      markets,
+      timestamp: new Date().toISOString(),
+      totalPredictions: markets.length,
+      source: "Gemini API",
+    });
+  } catch (error) {
+    console.error("Error getting AI suggestions:", error);
+    res.status(500).json({
+      error: "Failed to get AI suggestions",
+      details: error.message,
+    });
+  }
 });
 
-app.post("/api/markets", upload.single('image'), async (req, res) => {
+app.post("/api/markets", upload.single("image"), async (req, res) => {
   try {
     const newMarket = {
       ...JSON.parse(req.body.marketData),
       imageUrl: req.file ? `/uploads/${req.file.filename}` : null,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     // Read existing markets
@@ -188,11 +179,15 @@ app.post("/api/markets", upload.single('image'), async (req, res) => {
     // Save updated markets
     await fs.writeFile(
       "kalshi-scraped-data.json",
-      JSON.stringify({ 
-        markets,
-        scrapedAt: new Date().toISOString(),
-        totalMarketsFound: markets.length
-      }, null, 2)
+      JSON.stringify(
+        {
+          markets,
+          scrapedAt: new Date().toISOString(),
+          totalMarketsFound: markets.length,
+        },
+        null,
+        2
+      )
     );
 
     res.json({ success: true, market: newMarket });
@@ -211,8 +206,27 @@ const server = app.listen(PORT, () => {
     `🚀 Prediction Market Platform running at http://localhost:${PORT}`
   );
   console.log(`📊 API endpoint: http://localhost:${PORT}/api/markets`);
-  console.log(`🔄 Scrape endpoint: http://localhost:${PORT}/api/scrape`);
+  console.log(
+    `🔄 Scrape endpoint: http://localhost:${PORT}/api/scrape (no timeout)`
+  );
   console.log(`✅ Server is ready and listening...`);
+});
+
+// Graceful shutdown handling
+process.on("SIGINT", () => {
+  console.log("\n🛑 Received SIGINT. Shutting down gracefully...");
+  server.close(() => {
+    console.log("✅ Server closed");
+    process.exit(0);
+  });
+});
+
+process.on("SIGTERM", () => {
+  console.log("\n🛑 Received SIGTERM. Shutting down gracefully...");
+  server.close(() => {
+    console.log("✅ Server closed");
+    process.exit(0);
+  });
 });
 
 // Handle server errors
