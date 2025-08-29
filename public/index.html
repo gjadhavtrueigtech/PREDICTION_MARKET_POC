@@ -25,6 +25,10 @@
                     <i class="fas fa-download"></i>
                     Scrape Latest
                 </button>
+                <button class="btn-primary" onclick="showCreateMarketModal()">
+                    <i class="fas fa-plus"></i>
+                    Create Market
+                </button>
             </nav>
         </div>
     </header>
@@ -117,6 +121,74 @@
                 <div class="scrape-output">
                     <pre id="scrape-log"></pre>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Market Modal -->
+    <div class="modal" id="create-market-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Market</h3>
+                <button class="modal-close" onclick="closeCreateMarketModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="source-selector">
+                    <button class="source-btn" data-source="news" onclick="switchSource('news')">News API</button>
+                    <button class="source-btn" data-source="ai" onclick="switchSource('ai')">AI Suggestions</button>
+                 </div>
+                <div id="news-source-content">
+                    <div class="news-list" id="news-list">
+                        <!-- News items will be loaded here -->
+                    </div>
+                </div>
+                <div id="ai-source-content" style="display: none;">
+                    <textarea id="ai-prompt" placeholder="Enter a topic for market suggestions..."></textarea>
+                    <button class="btn-primary" onclick="getAISuggestions()">Get Suggestions</button>
+                    <div id="ai-suggestions"></div>
+                </div>
+                 <div id="modal-loading" class="modal-loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                </div>
+            
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- Market Creation Form Modal -->
+    <div class="modal" id="market-form-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Market</h3>
+                <button class="modal-close" onclick="closeMarketFormModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="market-creation-form">
+                    <div class="form-group">
+                        <label>Market Question/Title</label>
+                        <input type="text" id="market-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Market Image</label>
+                        <input type="file" id="market-image" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Options</label>
+                        <div id="options-container"></div>
+                        <button type="button" class="btn-secondary" onclick="addOptionPair()" id="add-option-btn">
+                            <i class="fas fa-plus"></i> Add Option Pair
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Market</button>
+                </form>
             </div>
         </div>
     </div>
