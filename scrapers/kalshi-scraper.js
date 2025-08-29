@@ -157,18 +157,6 @@ class KalshiScraper {
             card.querySelectorAll("span.transition-colors")
           );
 
-          // Debug: Log what we found
-          try {
-            console.log(
-              `[KALSHI_DEBUG] Card "${question}" - Found ${transitionSpans.length} transition-colors spans`
-            );
-            transitionSpans.forEach((l, i) => {
-              console.log(
-                `[KALSHI_DEBUG] transition-colors ${i}: "${l.textContent.trim()}"`
-              );
-            });
-          } catch (_) {}
-
           // Process transition-colors spans in pairs (label, percentage)
           for (let i = 0; i < transitionSpans.length - 1; i += 2) {
             const labelSpan = transitionSpans[i];
@@ -177,15 +165,6 @@ class KalshiScraper {
             const label = labelSpan.textContent.trim();
             const pctText = pctSpan.textContent.trim();
             const pctMatch = pctText.match(pctRegex);
-
-            // Debug: Log what we're processing
-            try {
-              console.log(
-                `[KALSHI_DEBUG] Processing pair ${i}: label="${label}", pctText="${pctText}", pctMatch=${
-                  pctMatch ? pctMatch[0] : "null"
-                }`
-              );
-            } catch (_) {}
 
             if (label && pctMatch) {
               const percentage = pctMatch[0];
@@ -199,9 +178,6 @@ class KalshiScraper {
                   label,
                   percentage,
                 });
-                try {
-                  console.log(`[KALSHI_OPTION] ${label} -> ${percentage}`);
-                } catch (_) {}
               }
             }
           }
@@ -235,11 +211,6 @@ class KalshiScraper {
               const pctMatch = text.match(/\d{1,3}%/);
               if (pctMatch) {
                 marketCard.percentage = pctMatch[0];
-                try {
-                  console.log(
-                    `[KALSHI_QUESTION_PCT] "${question}" -> ${pctMatch[0]} (styled span)`
-                  );
-                } catch (_) {}
                 break;
               }
             }
@@ -252,11 +223,6 @@ class KalshiScraper {
                 const pctMatch = text.match(/\d{1,3}%/);
                 if (pctMatch) {
                   marketCard.percentage = pctMatch[0];
-                  try {
-                    console.log(
-                      `[KALSHI_QUESTION_PCT] "${question}" -> ${pctMatch[0]} (any span)`
-                    );
-                  } catch (_) {}
                   break;
                 }
               }
@@ -268,11 +234,6 @@ class KalshiScraper {
               const pctMatch = cardText.match(/\d{1,3}%/);
               if (pctMatch) {
                 marketCard.percentage = pctMatch[0];
-                try {
-                  console.log(
-                    `[KALSHI_QUESTION_PCT] "${question}" -> ${pctMatch[0]} (card text)`
-                  );
-                } catch (_) {}
               }
             }
           }
@@ -284,13 +245,6 @@ class KalshiScraper {
 
         return marketCards.filter((card) => card !== null);
       });
-
-      console.log(
-        `🎯 Found ${marketData.length} markets with ${marketData.reduce(
-          (total, market) => total + market.options.length,
-          0
-        )} total options`
-      );
 
       console.log("✅ Market data extraction completed successfully!");
 
@@ -309,8 +263,10 @@ class KalshiScraper {
     } finally {
       try {
         await page.close();
+        await this.close(); // Close the browser
       } catch (e) {
-        // Ignore page close errors
+        // Ignore close errors
+        console.log("⚠️ Warning: Error during cleanup:", e.message);
       }
     }
   }

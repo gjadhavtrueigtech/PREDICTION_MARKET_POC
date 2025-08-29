@@ -5,7 +5,7 @@ let currentFilter = "all";
 let currentSort = "default";
 
 // Global variables for market creation
-let currentSource = 'news';
+let currentSource = "news";
 let newsData = [];
 let aiSuggestions = [];
 
@@ -117,9 +117,12 @@ function createMarketCard(market) {
     // Multi-choice market
     const optionsList = market.options
       .map((option) => {
-        const hasPercentage = option.percentage && option.percentage !== "-%";
-        const displayPercentage = hasPercentage ? option.percentage : "New";
-        const isNew = !hasPercentage;
+        const hasOptionPercentage =
+          option.percentage && option.percentage !== "-%";
+        const displayPercentage = hasOptionPercentage
+          ? option.percentage
+          : "New";
+        const isNew = !hasOptionPercentage;
 
         return `
              <div class="option-item">
@@ -162,7 +165,6 @@ function createMarketCard(market) {
          `;
   } else {
     // Binary market
-    const hasPercentage = market.percentage && market.percentage !== "-%";
     const percentage = hasPercentage ? market.percentage : "New";
     const isNew = !hasPercentage;
     const questionId = escapeHtml(market.text || market.question || "");
@@ -206,16 +208,16 @@ function createMarketCard(market) {
                         ? `<p class="market-text">${escapeHtml(text)}</p>`
                         : ""
                     }
-                                         ${
-                                           market.href
-                                             ? `
+                    ${
+                      market.href
+                        ? `
                          <a href="${market.href}" target="_blank" class="market-url">
                              <i class="fas fa-external-link-alt"></i>
                              View Market
                          </a>
                      `
-                                             : ""
-                                         }
+                        : ""
+                    }
                 </div>
             </div>
             <div class="market-body">
@@ -397,24 +399,24 @@ function updateScrapeLog(output) {
 
 // Loading state
 function showLoading(show, isModal = false) {
-    if (isModal) {
-        const modalLoader = document.getElementById('modal-loading');
-        if (modalLoader) {
-            modalLoader.style.display = show ? 'flex' : 'none';
-        }
-    } else {
-        const loading = document.getElementById("loading");
-        const marketsGrid = document.getElementById("markets-grid");
-        const emptyState = document.getElementById("empty-state");
-
-        if (show) {
-            loading.style.display = "block";
-            marketsGrid.style.display = "none";
-            emptyState.style.display = "none";
-        } else {
-            loading.style.display = "none";
-        }
+  if (isModal) {
+    const modalLoader = document.getElementById("modal-loading");
+    if (modalLoader) {
+      modalLoader.style.display = show ? "flex" : "none";
     }
+  } else {
+    const loading = document.getElementById("loading");
+    const marketsGrid = document.getElementById("markets-grid");
+    const emptyState = document.getElementById("empty-state");
+
+    if (show) {
+      loading.style.display = "block";
+      marketsGrid.style.display = "none";
+      emptyState.style.display = "none";
+    } else {
+      loading.style.display = "none";
+    }
+  }
 }
 
 // Error handling
@@ -496,219 +498,228 @@ function showNotification(message, type = "info") {
 // Add/modify these functions
 
 async function showCreateMarketModal() {
-    const modal = document.getElementById('create-market-modal');
-    modal.classList.add('show');
-    if (currentSource === 'ai') {
-        await loadAISuggestions();
-    } else {
-        await loadNewsData();
-    }
+  const modal = document.getElementById("create-market-modal");
+  modal.classList.add("show");
+  if (currentSource === "ai") {
+    await loadAISuggestions();
+  } else {
+    await loadNewsData();
+  }
 }
 
 function closeCreateMarketModal() {
-    const modal = document.getElementById('create-market-modal');
-    modal.classList.remove('show');
+  const modal = document.getElementById("create-market-modal");
+  modal.classList.remove("show");
 }
 
 async function loadNewsData() {
-    try {
-        showLoading(true, true); // Show modal loader
-        const response = await fetch('/api/news');
-        const data = await response.json();
-        newsData = data.response.results;
-        renderNewsList();
-    } catch (error) {
-        console.error('Error loading news:', error);
-        showError('Failed to load news data');
-    } finally {
-        showLoading(false, true); // Hide modal loader
-    }
+  try {
+    showLoading(true, true); // Show modal loader
+    const response = await fetch("/api/news");
+    const data = await response.json();
+    newsData = data.response.results;
+    renderNewsList();
+  } catch (error) {
+    console.error("Error loading news:", error);
+    showError("Failed to load news data");
+  } finally {
+    showLoading(false, true); // Hide modal loader
+  }
 }
 
 function renderNewsList() {
-    const newsListElement = document.getElementById('news-list');
-    newsListElement.innerHTML = newsData.map((news, index) => `
+  const newsListElement = document.getElementById("news-list");
+  newsListElement.innerHTML = newsData
+    .map(
+      (news, index) => `
         <div class="news-item" onclick="selectNews(${index})">
             <h4>${news.webTitle}</h4>
             <p>${news.sectionName} - ${formatDate(news.webPublicationDate)}</p>
         </div>
-    `).join('');
+    `
+    )
+    .join("");
 }
 
 async function loadAISuggestions() {
-    try {
-        showLoading(true, true); // Show modal loader
-        const response = await fetch('/api/ai-suggestions',{
-          method: 'POST'
-        });
-        aiSuggestions = await response.json();
-        renderAISuggestions();
-    } catch (error) {
-        console.error('Error loading AI suggestions:', error);
-        showError('Failed to load AI suggestions');
-    } finally {
-        showLoading(false, true); // Hide modal loader
-    }
+  try {
+    showLoading(true, true); // Show modal loader
+    const response = await fetch("/api/ai-suggestions", {
+      method: "POST",
+    });
+    aiSuggestions = await response.json();
+    renderAISuggestions();
+  } catch (error) {
+    console.error("Error loading AI suggestions:", error);
+    showError("Failed to load AI suggestions");
+  } finally {
+    showLoading(false, true); // Hide modal loader
+  }
 }
 
 function renderAISuggestions() {
-    const suggestionsElement = document.getElementById('ai-suggestions');
-    if (!aiSuggestions || !aiSuggestions.markets) {
-        suggestionsElement.innerHTML = '<p class="error-message">No suggestions available</p>';
-        return;
-    }
+  const suggestionsElement = document.getElementById("ai-suggestions");
+  if (!aiSuggestions || !aiSuggestions.markets) {
+    suggestionsElement.innerHTML =
+      '<p class="error-message">No suggestions available</p>';
+    return;
+  }
 
-    const suggestionsHtml = aiSuggestions.markets.map((market, index) => `
+  const suggestionsHtml = aiSuggestions.markets
+    .map(
+      (market, index) => `
         <div class="suggestion-item" onclick="selectAISuggestion(${index})">
             <div class="suggestion-content">
                 <h4>${market.question}</h4>
-                <p>${market.text || ''}</p>
+                <p>${market.text || ""}</p>
             </div>
         </div>
-    `).join('');
+    `
+    )
+    .join("");
 
-    suggestionsElement.innerHTML = suggestionsHtml;
+  suggestionsElement.innerHTML = suggestionsHtml;
 }
 
-function selectNews(index){
+function selectNews(index) {
   const news = newsData[index];
-  showMarketForm(
-      news.webTitle
-  );
+  showMarketForm(news.webTitle);
 }
 
 function selectAISuggestion(index) {
-    const market = aiSuggestions.markets[index];
-    showMarketForm(
-        market.question,
-    );
+  const market = aiSuggestions.markets[index];
+  showMarketForm(market.question);
 }
 
 function showMarketForm(title, options = []) {
-    closeCreateMarketModal();
-    const modal = document.getElementById('market-form-modal');
-    modal.classList.add('show');
-    
-    document.getElementById('market-title').value = title;
-    const optionsContainer = document.getElementById('options-container');
-    optionsContainer.innerHTML = '';
-    
-    if (options.length === 0) {
-        addOptionPair(title);
-    } else {
-        options.forEach(option => addOptionPair(option));
-    }
+  closeCreateMarketModal();
+  const modal = document.getElementById("market-form-modal");
+  modal.classList.add("show");
+
+  document.getElementById("market-title").value = title;
+  const optionsContainer = document.getElementById("options-container");
+  optionsContainer.innerHTML = "";
+
+  if (options.length === 0) {
+    addOptionPair(title);
+  } else {
+    options.forEach((option) => addOptionPair(option));
+  }
 }
 
 function closeMarketFormModal() {
-    const modal = document.getElementById('market-form-modal');
-    modal.classList.remove('show');
+  const modal = document.getElementById("market-form-modal");
+  modal.classList.remove("show");
 }
 
-function addOptionPair(title = '') {
-    const container = document.getElementById('options-container');
-    const pairDiv = document.createElement('div');
-    pairDiv.className = 'option-pair';
-    
-    pairDiv.innerHTML = `
+function addOptionPair(title = "") {
+  const container = document.getElementById("options-container");
+  const pairDiv = document.createElement("div");
+  pairDiv.className = "option-pair";
+
+  pairDiv.innerHTML = `
         <input type="text" class="option-title" placeholder="Option Title" value="${title}">
         <input type="text" class="option-percentage" placeholder="Percentage" value="">
         <button type="button" class="remove-option" onclick="this.parentElement.remove()">
             <i class="fas fa-times"></i>
         </button>
     `;
-    
-    container.appendChild(pairDiv);
+
+  container.appendChild(pairDiv);
 }
 
 // Add event listener for form submission
-document.getElementById('market-creation-form').addEventListener('submit', async (e) => {
+document
+  .getElementById("market-creation-form")
+  .addEventListener("submit", async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
-    
+
     const marketData = {
-        question: document.getElementById('market-title').value,
-        options: Array.from(document.querySelectorAll('.option-pair')).map(pair => ({
-            label: pair.querySelector('.option-title').value,
-            percentage: pair.querySelector('.option-percentage').value + '%'
-        })),
-        href: 'https://kalshi.com/markets/kxusomensingles#kxusomensingles-25',
-        text: document.getElementById('market-title').value
+      question: document.getElementById("market-title").value,
+      options: Array.from(document.querySelectorAll(".option-pair")).map(
+        (pair) => ({
+          label: pair.querySelector(".option-title").value,
+          percentage: pair.querySelector(".option-percentage").value + "%",
+        })
+      ),
+      href: "https://kalshi.com/markets/kxusomensingles#kxusomensingles-25",
+      text: document.getElementById("market-title").value,
     };
-    
-    formData.append('marketData', JSON.stringify(marketData));
-    
-    const imageFile = document.getElementById('market-image')?.files?.[0];
+
+    formData.append("marketData", JSON.stringify(marketData));
+
+    const imageFile = document.getElementById("market-image")?.files?.[0];
     if (imageFile) {
-        formData.append('image', imageFile);
+      formData.append("image", imageFile);
     }
-    
+
     try {
-        const response = await fetch('/api/markets', {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (response.ok) {
-            closeMarketFormModal();
-            showNotification('Market created successfully!', 'success');
-            refreshData();
-        } else {
-            throw new Error('Failed to create market');
-        }
+      const response = await fetch("/api/markets", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        closeMarketFormModal();
+        showNotification("Market created successfully!", "success");
+        refreshData();
+      } else {
+        throw new Error("Failed to create market");
+      }
     } catch (error) {
-        console.error('Error creating market:', error);
-        showError('Failed to create market');
+      console.error("Error creating market:", error);
+      showError("Failed to create market");
     }
-});
+  });
 
 // Update the switchSource function
 function switchSource(source) {
-    currentSource = source;
-    
-    // Update button states
-    document.querySelectorAll('.source-btn').forEach(btn => {
-        btn.classList.remove('active'); // Remove active from all
-        if (btn.getAttribute('data-source') === source) {
-            btn.classList.add('active'); // Add active to selected
-        }
-    });
-    
-    // Toggle content visibility
-    document.getElementById('news-source-content').style.display = 
-        source === 'news' ? 'block' : 'none';
-    document.getElementById('ai-source-content').style.display = 
-        source === 'ai' ? 'block' : 'none';
+  currentSource = source;
 
-    // Load appropriate data
-    if (source === 'ai') {
-        loadAISuggestions();
-    } else {
-        loadNewsData();
+  // Update button states
+  document.querySelectorAll(".source-btn").forEach((btn) => {
+    btn.classList.remove("active"); // Remove active from all
+    if (btn.getAttribute("data-source") === source) {
+      btn.classList.add("active"); // Add active to selected
     }
+  });
+
+  // Toggle content visibility
+  document.getElementById("news-source-content").style.display =
+    source === "news" ? "block" : "none";
+  document.getElementById("ai-source-content").style.display =
+    source === "ai" ? "block" : "none";
+
+  // Load appropriate data
+  if (source === "ai") {
+    loadAISuggestions();
+  } else {
+    loadNewsData();
+  }
 }
 
 // Add getAISuggestions function
 async function getAISuggestions() {
-    try {
-        const prompt = document.getElementById('ai-prompt').value;
-        showLoading(true);
-        
-        const response = await fetch('/api/ai-suggestions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ prompt })
-        });
-        
-        aiSuggestions = await response.json();
-        renderAISuggestions();
-    } catch (error) {
-        console.error('Error getting AI suggestions:', error);
-        showError('Failed to get AI suggestions');
-    } finally {
-        showLoading(false);
-    }
+  try {
+    const prompt = document.getElementById("ai-prompt").value;
+    showLoading(true);
+
+    const response = await fetch("/api/ai-suggestions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt }),
+    });
+
+    aiSuggestions = await response.json();
+    renderAISuggestions();
+  } catch (error) {
+    console.error("Error getting AI suggestions:", error);
+    showError("Failed to get AI suggestions");
+  } finally {
+    showLoading(false);
+  }
 }
