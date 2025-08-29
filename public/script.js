@@ -41,9 +41,29 @@ async function loadMarketData() {
 function updateStats() {
   if (!marketsData) return;
 
-  const totalMarkets = marketsData.markets?.length || 0;
+  // Filter markets that have BOTH options AND percentages
+  const validMarkets =
+    marketsData.markets?.filter((market) => {
+      // Must have options
+      const hasOptions = market.options && market.options.length > 0;
+
+      // Must have percentages (either at market level or in options)
+      const hasMarketPercentage =
+        market.percentage && market.percentage !== "-%";
+      const hasOptionsWithPercentages =
+        market.options &&
+        market.options.some(
+          (option) => option.percentage && option.percentage !== "-%"
+        );
+      const hasPercentages = hasMarketPercentage || hasOptionsWithPercentages;
+
+      // Must have BOTH options AND percentages
+      return hasOptions && hasPercentages;
+    }) || [];
+
+  const totalMarkets = validMarkets.length;
   const totalOptions =
-    marketsData.markets?.reduce(
+    validMarkets.reduce(
       (sum, market) => sum + (market.options?.length || 0),
       0
     ) || 0;
@@ -77,7 +97,25 @@ function renderMarkets() {
   const container = document.getElementById("markets-grid");
   const emptyState = document.getElementById("empty-state");
 
-  if (!filteredMarkets || filteredMarkets.length === 0) {
+  // Filter out markets that don't have options OR don't have percentages
+  const validMarkets = filteredMarkets.filter((market) => {
+    // Must have options
+    const hasOptions = market.options && market.options.length > 0;
+
+    // Must have percentages (either at market level or in options)
+    const hasMarketPercentage = market.percentage && market.percentage !== "-%";
+    const hasOptionsWithPercentages =
+      market.options &&
+      market.options.some(
+        (option) => option.percentage && option.percentage !== "-%"
+      );
+    const hasPercentages = hasMarketPercentage || hasOptionsWithPercentages;
+
+    // Must have BOTH options AND percentages
+    return hasOptions && hasPercentages;
+  });
+
+  if (!validMarkets || validMarkets.length === 0) {
     container.style.display = "none";
     emptyState.style.display = "block";
     return;
@@ -86,7 +124,7 @@ function renderMarkets() {
   container.style.display = "grid";
   emptyState.style.display = "none";
 
-  container.innerHTML = filteredMarkets
+  container.innerHTML = validMarkets
     .map((market) => createMarketCard(market))
     .join("");
 }
@@ -262,7 +300,25 @@ function applyFilters() {
     .getElementById("search-input")
     .value.toLowerCase();
 
-  filteredMarkets = marketsData.markets.filter((market) => {
+  // First filter markets that have BOTH options AND percentages
+  const validMarkets = marketsData.markets.filter((market) => {
+    // Must have options
+    const hasOptions = market.options && market.options.length > 0;
+
+    // Must have percentages (either at market level or in options)
+    const hasMarketPercentage = market.percentage && market.percentage !== "-%";
+    const hasOptionsWithPercentages =
+      market.options &&
+      market.options.some(
+        (option) => option.percentage && option.percentage !== "-%"
+      );
+    const hasPercentages = hasMarketPercentage || hasOptionsWithPercentages;
+
+    // Must have BOTH options AND percentages
+    return hasOptions && hasPercentages;
+  });
+
+  filteredMarkets = validMarkets.filter((market) => {
     // Text search
     const searchableText = [
       market.question || "",

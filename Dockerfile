@@ -1,5 +1,5 @@
 # Use Node.js 18 LTS on Ubuntu as base image
-FROM node:18-bullseye
+FROM node:18-bullseye-slim
 
 # Set working directory
 WORKDIR /app
@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y \
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy application code
 COPY . .

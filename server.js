@@ -8,7 +8,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
